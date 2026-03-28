@@ -1,0 +1,547 @@
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Made by Anzor5458",true)
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+wait(1)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("cursed mode",true)
+wait(3)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Warnings 
+If you have a weak heart, epilepsy, or any other medical condition, it is best not to play. If you have a weak phone or computer, it is also best not to play (the phone and computer will end).
+There are violent sounds and scary scenes, and it can be difficult and scary to play.",true)
+
+-- Sad
+coroutine.wrap(function()
+    while true do
+        wait(math.random(80,120))
+        game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+        wait(2)
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
+local MainGame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+
+---====== Create Freeze Entity ======---
+
+local entity = Spawner:Create({
+	Entity = {
+		Name = "sad", -- The name of your cursed entity
+		Asset = "rbxassetid://132791710969886", -- Generic frost/ghost asset (can be changed)
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 2 -- More intense flickering for Freeze
+		},
+		Shatter = true, -- Freeze freezes the air, breaking lights
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = true
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 100,
+		Values = {2, 25, 0.2, 2} -- Stronger shaking
+	},
+	Movement = {
+		Speed = 60, -- Freeze is slower but more methodical than Rush
+		Delay = 3,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = false, -- Freeze usually doesn't rebound like Ambush
+		Type = "Ambush", 
+		Min = 1,
+		Max = 1,
+		Delay = 2
+	},
+	Damage = {
+		Enabled = true,
+		Range = 50,
+		Amount = 100 -- Instant kill if touched
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = true, -- Freeze is harder to crucify
+		Break = true
+	},
+	Death = {
+		Type = "Guiding", 
+		Hints = {"You felt a cold breeze...", "Don't let him catch you off guard!", "Freeze moves when you don't look..."},
+		Cause = "Freeze"
+	}
+})
+
+---====== Cursed Mod Logic & Callbacks ======---
+
+entity:SetCallback("OnSpawned", function()
+    -- Your custom caption from the previous request
+    MainGame.caption("Cursed Mod: FREEZE has arrived", true)
+    
+    -- Blue atmosphere effect
+    game.Lighting.Ambient = Color3.fromRGB(0, 150, 255)
+end)
+
+entity:SetCallback("OnStartMoving", function()
+    print("Freeze is moving through the hotel...")
+end)
+
+entity:SetCallback("OnEnterRoom", function(room: Model, firstTime: boolean)
+    if firstTime then
+        MainGame.caption("HE IS NEAR", false)
+    end
+end)
+
+entity:SetCallback("OnLookAt", function(lineOfSight: boolean)
+	if lineOfSight then
+		-- In some versions of Freeze, looking at him slows him down
+		print("Player is staring down Freeze")
+	else
+		-- This is where Freeze gets dangerous
+		print("Player is vulnerable!")
+	end
+end)
+
+entity:SetCallback("OnDespawned", function()
+    MainGame.caption("The air feels warmer now...", true)
+    -- Reset lighting
+    game.Lighting.Ambient = Color3.fromRGB(0, 0, 0)
+end)
+
+---====== Run entity ======---
+
+-- Trigger initial Cursed Mod message
+MainGame.caption("Cursed Mod activated", true)
+task.wait(2)
+-- Running the entity
+entity:Run(true)
+    end
+end)()
+
+-- hinn
+coroutine.wrap(function()
+    while true do
+        wait(math.random(80,120))       game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+        wait(2)
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
+local MainGame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+
+---====== Create Surge Entity ======---
+
+local entity = Spawner:Create({
+	Entity = {
+		Name = "hinn",
+		Asset = "rbxassetid:/130566298824812", -- Distorted electric entity model
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 0.5 -- Very fast flickering
+		},
+		Shatter = true,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = true
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 120,
+		Values = {3, 30, 0.1, 1.5} -- High intensity shake
+	},
+	Movement = {
+		Speed = 180, -- Surge is much faster than Rush (Cursed speed)
+		Delay = 1.5,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = false,
+		Type = "Ambush",
+		Min = 1,
+		Max = 1,
+		Delay = 2
+	},
+	Damage = {
+		Enabled = true,
+		Range = 50,
+		Amount = 100
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = false,
+		Break = true
+	},
+	Death = {
+		Type = "Guiding",
+		Hints = {"The lights flickered only for a moment...", "Surge is faster than any other entity.", "You must hide the second you see the flicker!"},
+		Cause = "Surge"
+	}
+})
+
+---====== Cursed Mod Logic & Callbacks ======---
+
+entity:SetCallback("OnSpawned", function()
+    -- Activation caption
+    MainGame.caption("Cursed Mod: SURGE detected", true)
+    
+    -- Visual glitch effect
+    local colorCorrection = Instance.new("ColorCorrectionEffect", game.Lighting)
+    colorCorrection.Name = "SurgeEffect"
+    colorCorrection.Brightness = 0.2
+    colorCorrection.Contrast = 0.5
+    
+    task.delay(2, function()
+        colorCorrection:Destroy()
+    end)
+end)
+
+entity:SetCallback("OnStartMoving", function()
+    -- Glitch sound effect
+    local surgeSound = Instance.new("Sound")
+    surgeSound.SoundId = "rbxassetid://1528448821" -- Electric buzz/surge sound
+    surgeSound.Volume = 2
+    surgeSound.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+    surgeSound:Play()
+    
+    print("Surge is moving at high velocity!")
+end)
+
+entity:SetCallback("OnDespawned", function()
+    MainGame.caption("Surge has passed", true)
+end)
+
+---====== Run entity ======---
+
+-- Show mod name before spawn
+MainGame.caption("Cursed Mod activated", true)
+task.wait(1)
+
+-- Execute Surge
+entity:Run(true)
+    end
+end)()
+
+-- light
+coroutine.wrap(function()
+    while true do
+        wait(math.random(80,120))
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+        wait(2)
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
+local MainGame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+
+---====== Create Barrage Entity ======---
+
+local entity = Spawner:Create({
+	Entity = {
+		Name = "light",
+		Asset = "rbxassetid://106092043150179", -- Red distorted entity model
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 1.5
+		},
+		Shatter = true,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = true
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 110,
+		Values = {2.5, 20, 0.15, 1.2} 
+	},
+	Movement = {
+		Speed = 120, -- Faster than Rush
+		Delay = 2,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = true, -- Barrage rebounds like Ambush
+		Type = "Ambush", 
+		Min = 2, -- Minimum 2 rebounds
+		Max = 4, -- Maximum 4 rebounds
+		Delay = 1.5
+	},
+	Damage = {
+		Enabled = true,
+		Range = 45,
+		Amount = 100
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = true, -- Hard to stop
+		Break = true
+	},
+	Death = {
+		Type = "Guiding",
+		Hints = {"Barrage doesn't stop after one pass.", "Listen for the sound of his return!", "Stay hidden until the red light fades."},
+		Cause = "Barrage"
+	}
+})
+
+---====== Cursed Mod Logic & Callbacks ======---
+
+entity:SetCallback("OnSpawned", function()
+    -- Activation caption
+    MainGame.caption("Cursed Mod: BARRAGE incoming", true)
+    
+    -- Red "Bloody" atmosphere
+    game.Lighting.Ambient = Color3.fromRGB(200, 0, 0)
+    local colorCorrection = Instance.new("ColorCorrectionEffect", game.Lighting)
+    colorCorrection.Name = "BarrageGlow"
+    colorCorrection.TintColor = Color3.fromRGB(255, 100, 100)
+    colorCorrection.Saturation = 0.5
+    
+    task.delay(10, function()
+        colorCorrection:Destroy()
+    end)
+end)
+
+entity:SetCallback("OnRebounding", function(startOfRebound)
+    if startOfRebound then
+        MainGame.caption("HE IS COMING BACK", false)
+        -- Increase speed slightly on each rebound for "Cursed" effect
+        entity.Config.Movement.Speed = entity.Config.Movement.Speed + 20
+    end
+end)
+
+entity:SetCallback("OnDespawned", function()
+    MainGame.caption("Barrage has retreated", true)
+    game.Lighting.Ambient = Color3.fromRGB(0, 0, 0)
+end)
+
+---====== Run entity ======---
+
+-- Show mod name before spawn
+MainGame.caption("Cursed Mod activated", true)
+task.wait(1)
+-- Execute Barrage
+entity:Run(true)
+    end
+end)()
+
+-- Screamer
+coroutine.wrap(function()
+    while true do
+        wait(math.random(80,120))
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+        wait(2)
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
+local MainGame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+
+---====== Create Screamer Entity ======---
+
+local entity = Spawner:Create({
+	Entity = {
+		Name = "Screamer",
+		Asset = "rbxassetid://16776960136", -- Distorted ghost-like model
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 0.3 -- Almost no warning!
+		},
+		Shatter = true,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = true
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 150,
+		Values = {10, 50, 0.05, 1.5} -- Extreme shaking
+	},
+	Movement = {
+		Speed = 250, -- Cursed Speed: Nearly instant!
+		Delay = 0.5,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = false,
+		Type = "Ambush",
+		Min = 1,
+		Max = 1,
+		Delay = 2
+	},
+	Damage = {
+		Enabled = true,
+		Range = 60,
+		Amount = 100
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 50,
+		Resist = true,
+		Break = true
+	},
+	Death = {
+		Type = "Guiding",
+		Hints = {"The noise was deafening...", "Screamer doesn't give you time to think.", "Hide the moment you hear the roar!"},
+		Cause = "Screamer"
+	}
+})
+
+---====== Cursed Mod Logic & Callbacks ======---
+
+entity:SetCallback("OnSpawned", function()
+    -- Activation caption
+    MainGame.caption("Cursed Mod: SCREAMER DETECTED", true)
+    
+    -- Blindness effect (Flashbang)
+    local whiteOut = Instance.new("ColorCorrectionEffect", game.Lighting)
+    whiteOut.Brightness = 1
+    whiteOut.Contrast = 1
+    
+    task.delay(0.5, function()
+        -- Slowly fade back
+        local tween = game:GetService("TweenService"):Create(whiteOut, TweenInfo.new(2), {Brightness = 0, Contrast = 0})
+        tween:Play()
+        tween.Completed:Connect(function() whiteOut:Destroy() end)
+    end)
+end)
+
+entity:SetCallback("OnStartMoving", function()
+    -- High-pitched scream sound
+    local scream = Instance.new("Sound")
+    scream.SoundId = "rbxassetid://4835664238" -- Loud distorted scream
+    scream.Volume = 5 -- Very loud for Cursed effect
+    scream.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+    scream:Play()
+    
+    -- Distort the UI
+    MainGame.caption("AAAAAAAAAAAAAA", false)
+end)
+
+entity:SetCallback("OnDespawned", function()
+    MainGame.caption("Silence returns...", true)
+end)
+
+---====== Run entity ======---
+
+-- Show mod name before spawn
+MainGame.caption("Cursed Mod activated", true)
+task.wait(1)
+
+-- Execute Screamer
+entity:Run(true)
+    end
+end)()
+
+-- trauma
+coroutine.wrap(function()
+    while true do
+        wait(math.random(80,120))
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+        wait(2)
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
+local MainGame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+
+---====== Create Blade Entity ======---
+
+local entity = Spawner:Create({
+	Entity = {
+		Name = "trauma",
+		Asset = "rbxassetid:/129892092737478", -- Sharp/Grey distorted model
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 0.8 -- Fast flicker for sudden appearance
+		},
+		Shatter = true,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = true
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 100,
+		Values = {4, 35, 0.05, 0.8} -- Sharp, jerky camera shaking
+	},
+	Movement = {
+		Speed = 150, -- Very high speed
+		Delay = 1,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = false,
+		Type = "Ambush", 
+		Min = 1,
+		Max = 1,
+		Delay = 2
+	},
+	Damage = {
+		Enabled = true,
+		Range = 60, -- Large cut range
+		Amount = 100
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = true, -- Hard to catch a blade
+		Break = true
+	},
+	Death = {
+		Type = "Guiding",
+		Hints = {"The air was cut thin...", "Blade strikes without warning.", "Hide before the metal screams!"},
+		Cause = "Blade"
+	}
+})
+
+---====== Cursed Mod Logic & Callbacks ======---
+
+entity:SetCallback("OnSpawned", function()
+    -- Activation caption
+    MainGame.caption("Cursed Mod: BLADE is slicing through", true)
+    
+    -- Metallic/Grey atmosphere
+    game.Lighting.Ambient = Color3.fromRGB(100, 100, 100)
+    local colorCorrection = Instance.new("ColorCorrectionEffect", game.Lighting)
+    colorCorrection.Name = "BladeEffect"
+    colorCorrection.Saturation = -1 -- Desaturate for "metallic" look
+    colorCorrection.Contrast = 0.4
+    
+    task.delay(5, function()
+        colorCorrection:Destroy()
+    end)
+end)
+
+entity:SetCallback("OnStartMoving", function()
+    -- Sword / Slicing sound effect
+    local bladeSound = Instance.new("Sound")
+    bladeSound.SoundId = "rbxassetid://9114251025" -- Metal slash/shing sound
+    bladeSound.Volume = 2.5
+    bladeSound.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+    bladeSound:Play()
+    
+    -- Special Cursed effect: brief speed boost to player then slow
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 22
+    task.wait(0.5)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10 -- "Bleeding" effect simulation
+end)
+
+entity:SetCallback("OnDespawned", function()
+    MainGame.caption("The blade has passed", true)
+    game.Lighting.Ambient = Color3.fromRGB(0, 0, 0)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16 -- Reset speed
+end)
+
+---====== Run entity ======---
+
+-- Show mod name before spawn
+MainGame.caption("Cursed Mod activated", true)
+task.wait(1)
+
+-- Execute Blade
+entity:Run(true)
+    end
+end)()
